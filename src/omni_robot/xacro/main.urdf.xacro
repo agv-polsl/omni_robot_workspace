@@ -3,7 +3,7 @@
 	xmlns:xacro="http://www.ros.org/wiki/xacro"
 	name="omni_robot"
 >
-
+	<xacro:include filename="$(find omni_robot)/xacro/top.urdf.xacro"/>
 	<xacro:include filename="$(find omni_robot)/xacro/rim.urdf.xacro"/>
 
 	<link name="origin_link"/>
@@ -59,6 +59,12 @@
 		/>
 
 	</joint>
+	<xacro:top_macro
+		name="left"
+		color="0.3 0 0"
+		xyz="0 0 0.0"
+		rpy="0 0 0"
+	/>
 	<xacro:rim_macro
 		name="left"
 		color="0.3 0 0"

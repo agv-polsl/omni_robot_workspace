@@ -1,6 +1,5 @@
 #include "steeringNodeHandler.h"
 using namespace SNH;
-  // ini
   void steeringNodeHandler::initializePublishers(ros::NodeHandle& n){
     this->VletfPub = n.advertise<std_msgs::Float64>(left_joint_cmd_topic, 1000);
     this->VrightPub = n.advertise<std_msgs::Float64>(right_joint_cmd_topic, 1000);
