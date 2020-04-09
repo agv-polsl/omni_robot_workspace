@@ -1,0 +1,101 @@
+<launch>
+
+	<param
+		name="omni_robot/robot_description"
+		command="$(find xacro)/xacro '$(find omni_robot)/xacro/main.urdf.xacro'"
+	/>
+
+	<arg
+		name="debug"
+		default="false"
+	/>
+	<arg
+		name="gui"
+		default="true"
+	/>
+	<arg
+		name="headless"
+		default="false"
+	/>
+	<arg
+		name="paused"
+		default="true"
+	/>
+	<arg
+		name="use_sim_time"
+		default="true"
+	/>
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+
+		<arg
+			name="debug"
+			value="$(arg debug)"
+		/>
+		<arg
+			name="gui"
+			value="$(arg gui)"
+		/>
+		<arg
+			name="paused"
+			value="$(arg paused)"
+		/>
+		<arg
+			name="use_sim_time"
+			value="$(arg use_sim_time)"
+		/>
+		<arg
+			name="headless"
+			value="$(arg headless)"
+		/>
+		<arg
+			name="world_name"
+			value="worlds/empty.world"
+		/>
+
+	</include>
+	<node
+		name="omni_robot_spawner"
+		pkg="gazebo_ros"
+		type="spawn_model"
+		args="-urdf -model robot -param robot_description -model omni_robot"
+		ns="omni_robot"
+	/>
+	<!-- <node
+		name="joint_state_publisher"
+		pkg="joint_state_publisher"
+		type="joint_state_publisher"
+		ns="omni_robot"
+	>
+		<param
+			name="use_gui"
+			type="Boolean"
+			value="false"
+		/>
+		<remap
+			from="/joint_states"
+			to="/omni_robot/joint_states"
+		/>
+	</node> -->
+	<node
+		name="robot_state_publisher"
+		pkg="robot_state_publisher"
+		type="robot_state_publisher"
+		respawn="false"
+		output="screen"
+		ns="omni_robot"
+	>
+
+		<param
+			name="publish_frequency"
+			type="double"
+			value="30.0"
+		/>
+		<remap
+			from="/joint_states"
+			to="/omni_robot/joint_states"
+		/>
+
+	</node>
+
+</launch>
+

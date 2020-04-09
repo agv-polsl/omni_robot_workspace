@@ -1,0 +1,6 @@
+omni_steering_pkg
+/home/wojtek/IOS/omni_ws/devel/.private/omni_steering_pkg/cmake.lock /home/wojtek/IOS/omni_ws/devel/./cmake.lock
+/home/wojtek/IOS/omni_ws/devel/.private/omni_steering_pkg/share/omni_steering_pkg/cmake/omni_steering_pkgConfig.cmake /home/wojtek/IOS/omni_ws/devel/share/omni_steering_pkg/cmake/omni_steering_pkgConfig.cmake
+/home/wojtek/IOS/omni_ws/devel/.private/omni_steering_pkg/share/omni_steering_pkg/cmake/omni_steering_pkgConfig-version.cmake /home/wojtek/IOS/omni_ws/devel/share/omni_steering_pkg/cmake/omni_steering_pkgConfig-version.cmake
+/home/wojtek/IOS/omni_ws/devel/.private/omni_steering_pkg/lib/omni_steering_pkg/omni_steering_test_node /home/wojtek/IOS/omni_ws/devel/lib/omni_steering_pkg/omni_steering_test_node
+/home/wojtek/IOS/omni_ws/devel/.private/omni_steering_pkg/lib/pkgconfig/omni_steering_pkg.pc /home/wojtek/IOS/omni_ws/devel/lib/pkgconfig/omni_steering_pkg.pc

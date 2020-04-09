@@ -1,0 +1,34 @@
+<launch> 
+    <rosparam
+        file = "$(find omni_robot)/config/joint_velocity.yaml"
+        command = "load"
+    />
+
+    <arg
+		name="paused"
+		default="false"
+	/>
+	<arg
+		name="height"
+		default="0"
+	/>
+
+    <include file = "$(find omni_robot)/launch/gazebo_description.launch">
+        <arg
+            name="paused"
+            default="false"
+        />
+    </include>    
+
+	<node
+		name="controller_spawner"
+		pkg="controller_manager"
+		type="spawner"
+		respawn="false"
+		output="screen"
+		args="joint_state_controller left_joint_velocity_controller back_joint_velocity_controller right_joint_velocity_controller"
+		ns="/omni_robot"
+	/>
+
+
+</launch>
