@@ -1,0 +1,4 @@
+killall gzserver
+killall gzclient
+killall rosmaster
+roslaunch omni_robot velocity_controller.launch
