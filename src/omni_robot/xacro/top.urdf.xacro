@@ -40,7 +40,8 @@
 
 				<geometry>
 
-					<mesh filename="package://omni_robot/mesh/widertop.stl" scale="0.1 0.1 001"/>
+					<mesh filename="package://omni_robot/mesh/widertop.stl" 
+					scale="0.1 0.1 001"/>
 
 				</geometry>
 
