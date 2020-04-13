@@ -1,7 +1,7 @@
 <launch>
 
 	<param
-		name="omni_robot/robot_description"
+		name="robot_description"
 		command="$(find xacro)/xacro '$(find omni_robot)/xacro/main.urdf.xacro'"
 	/>
 
@@ -58,7 +58,6 @@
 		pkg="gazebo_ros"
 		type="spawn_model"
 		args="-urdf -model robot -param robot_description -model omni_robot"
-		ns="omni_robot"
 	/>
 	<!-- <node
 		name="joint_state_publisher"
@@ -76,7 +75,7 @@
 			to="/omni_robot/joint_states"
 		/>
 	</node> -->
-	<node
+	<!-- <node
 		name="robot_state_publisher"
 		pkg="robot_state_publisher"
 		type="robot_state_publisher"
@@ -95,7 +94,7 @@
 			to="/omni_robot/joint_states"
 		/>
 
-	</node>
+	</node> -->
 
 </launch>
 
