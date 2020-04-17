@@ -1,0 +1,8 @@
+<launch>
+	<node
+		name="encoder"
+		pkg="omni_steering_pkg"
+		type="encoder_node"
+	></node>
+</launch>
+   

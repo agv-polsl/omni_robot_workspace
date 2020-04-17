@@ -59,7 +59,7 @@
 		type="spawn_model"
 		args="-urdf -model robot -param robot_description -model omni_robot"
 	/>
-	<!-- <node
+	<node
 		name="joint_state_publisher"
 		pkg="joint_state_publisher"
 		type="joint_state_publisher"
@@ -74,7 +74,7 @@
 			from="/joint_states"
 			to="/omni_robot/joint_states"
 		/>
-	</node> -->
+	</node>
 	<!-- <node
 		name="robot_state_publisher"
 		pkg="robot_state_publisher"
