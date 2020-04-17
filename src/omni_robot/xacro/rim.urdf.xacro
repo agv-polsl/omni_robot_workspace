@@ -45,6 +45,14 @@
 					<mesh filename="package://omni_robot/mesh/rim.stl"/>
 
 				</geometry>
+				<surface>
+				<friction>
+					<ode>
+					<mu>100000.0</mu>
+					<mu2>100000.0</mu2>
+					</ode>
+				</friction>
+				</surface>
 
 			</collision>
 

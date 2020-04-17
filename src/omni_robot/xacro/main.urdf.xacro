@@ -1,64 +1,58 @@
 <?xml version="1.0"?>
-<robot
-	xmlns:xacro="http://www.ros.org/wiki/xacro"
-	name="omni_robot"
->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="omni_robot">
 
+	
+	<!-- Gazebo plugins -->
+	<xacro:include filename="$(find omni_robot)/gazebo/omni_robot.gazebo" />
+	<!-- Robot components -->
+	<xacro:include filename="$(find omni_robot)/xacro/top.urdf.xacro"/>
+	<xacro:include filename="$(find omni_robot)/xacro/lidar.urdf.xacro"/>
 	<xacro:include filename="$(find omni_robot)/xacro/rim.urdf.xacro"/>
+	
+
 
 	<link name="origin_link"/>
 	<link name="base_link">
+		<inertial>
+			<mass value="0.07862944645"/>
+			<inertia
+				ixx="0.00002035985530754"
+				ixy="0"
+				ixz="0"
+				iyy="0.00002035985530754"
+				iyz="0"
+				izz="0.00003945961663220"
+			/>
+		</inertial>
 
-	<inertial>
+		<visual>
+			<geometry>
+				<mesh filename="package://omni_robot/mesh/base.stl"/>
+			</geometry>
+			<material name="base_material">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
 
-		<mass value="0.07862944645"/>
-		<inertia
-			ixx="0.00002035985530754"
-			ixy="0"
-			ixz="0"
-			iyy="0.00002035985530754"
-			iyz="0"
-			izz="0.00003945961663220"
-		/>
-
-	</inertial>
-	<visual>
-
-		<geometry>
-
-			<mesh filename="package://omni_robot/mesh/base.stl"/>
-
-		</geometry>
-		<material name="base_material">
-
-			<color rgba="1 1 1 1"/>
-
-		</material>
-
-	</visual>
-	<collision>
-
-		<geometry>
-
-			<mesh filename="package://omni_robot/mesh/base.stl"/>
-
-		</geometry>
-
-	</collision>
-
+		<collision>
+			<geometry>
+				<mesh filename="package://omni_robot/mesh/base.stl"/>
+			</geometry>
+		</collision>
 	</link>
-	<joint
-		name="base_joint"
-		type="fixed"
-	>
 
+	<joint name="base_joint" type="fixed">
 		<parent link="origin_link" />
 		<child link="base_link" />
-		<origin
-			xyz="0 0 0.01905"
-		/>
-
+		<origin xyz="0 0 0.01905" />
 	</joint>
+
+	<xacro:top_macro
+		name="left"
+		color="0.3 0 0"
+		xyz="0 0 0"
+		rpy="0 0 0"
+	/>
 	<xacro:rim_macro
 		name="left"
 		color="0.3 0 0"
@@ -77,14 +71,12 @@
 		xyz="0.03464101615 0.02 0"
 		rpy="1.570796326794896 0 -1.047197551196597"
 	/>
-	<gazebo>
+	<xacro:lidar_macro
+		xyz="0 0 0.04"
+		rpy="0 0 0"
+		scale = "0.3"
+	/>
 
-		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
 
-			<robotNamespace>/omni_robot</robotNamespace>
-
-		</plugin>
-
-	</gazebo>
 
 </robot>
